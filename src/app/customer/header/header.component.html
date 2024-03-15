@@ -17,11 +17,11 @@
             </div>
             <button type="button" class="btn-close " data-bs-theme="bg-white " data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body p-0 " style="overflow: visible;">
+          <div class="offcanvas-body p-0 " style="overflow: hidden;height: 100%;">
             <ul class="navbar-nav row w-100 ">
               <!----------------------------------------->
               <!-- <li class="nav-item col-12  w-100 pe-0 mb-4" > -->
-                <div class="btn-group d-flex flex-column gap-4 align-items-center justify-content-between  dropend col-12 ">                
+                <div class="btn-group d-flex flex-column gap-4 align-items-center justify-content-between  dropend col-12 overflow-scroll ">                
                   <h5 class="offcanvas-title fw-bolder align-self-start ms-3" id="offcanvasNavbarLabel">Categories</h5>
                   <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
                     <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
@@ -67,7 +67,7 @@
                           <img id="updownarrow" src="../../assets/chevron_down_96px.png" class=" " alt="" style="width: 14%; height: 30px;"> 
                         </div>
                         <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                          <h5 style="line-height: 5px;">Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                          <h5 style="line-height: 5px;">Category</h5> <img src="../../../assets/forward_144px.png" width="20px" height="20px" alt="">
                         </button>
                       </div>
                     </div>

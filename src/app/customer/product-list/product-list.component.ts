@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 //import { BookService } from '../Shared/book/book.service';
 import { Router } from '@angular/router';
+import { BookService } from '../Shared/book/book.service';
 
 export interface book{
   title:string,
@@ -41,13 +42,13 @@ export class ProductListComponent {
   ];
 
 
-  // constructor(private bookService:BookService,private router:Router){}
+  constructor(private bookService:BookService,private router:Router){}
 
-  // goDetails(item:book){
-  //   this.bookService.book = item;
+  goDetails(item:book){
+    this.bookService.book = item;
 
-  //   this.router.navigate(['productdetails']);
-  // }
+    this.router.navigate(['productdetails']);
+  }
 
 
 

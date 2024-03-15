@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Splide} from "@splidejs/splide"
-import {AutoScroll} from "@splidejs/splide-extension-auto-scroll"
+
 
 @Component({
   selector: 'app-home',

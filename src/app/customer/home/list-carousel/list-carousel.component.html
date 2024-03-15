@@ -1,0 +1,42 @@
+<div class="container row justify-content-center " style="background-color: #e9ecef;" >
+
+	<div class="row justify-content-center col-10 mx-0 mb-4 px-0 border  border-5  border-white"  style="height: 300px;white-space: nowrap;background-color: white;">
+		<h3 class="fw-semibold   ">Best Seller & Outdoors</h3>
+		<div class="row justify-content-center position-relative p-0 "  (mouseleave)="hoverdeactive(0)" (mouseenter)="hoveractive(0)" style="height: 300px;white-space: nowrap;">
+			<div id="main"  class=" row  d-flex flex-row flex-nowrap p-0 position-relative overflow-hidden " >
+				<div class="slidee{{0}} row align-items-center flex-nowrap justify-content-center " style="height: 250px;"  *ngFor="let items of groupsfirst">
+					<img class=" col-md-10" *ngFor="let item of items.images" [src]="item"  alt="../../assets/pexels-monstera-production-5708969.jpg">
+				</div>
+			</div>
+			<button id="next{{0}}" (click)="next(0)" class="position-absolute  end-0 border-2  border-end-0 rounded-1 shadow" style="opacity: 0;width: 75px; height: 40%;top: 20%;background-color: white;">
+				<span class="carousel-control-next-icon  " style="color: black; background-image: url(../../../assets/chevron_right_208px.png);" aria-hidden="true"></span>
+			</button>
+			<button id="prev{{0}}" (click)="prev(0)" class="position-absolute  start-0   border-2  border-start-0 rounded-1 shadow-sm" style="opacity: 0; width: 75px;height: 40%;top: 20%;background-color: white;">
+				<span class="carousel-control-prev-icon " style="color: black; background-image: url(../../../assets/chevron_left_208px.png);" aria-hidden="true"></span>
+			</button>
+		</div>
+	</div>
+
+	<div class="row justify-content-center col-10 mx-0 mb-4 px-0 border  border-5  border-white"  style="height: 300px;white-space: nowrap;background-color: white;">
+		<h3 class="fw-semibold   ">Best Books </h3>
+		<div class="row justify-content-center position-relative p-0 "  (mouseleave)="hoverdeactive(1)" (mouseenter)="hoveractive(1)" style="height: 300px;white-space: nowrap;">
+			<div id="main"  class=" row  d-flex flex-row flex-nowrap p-0 position-relative overflow-hidden " >
+				<div class="slidee{{1}} row align-items-center flex-nowrap justify-content-center " style="height: 250px;"  *ngFor="let items of groupbooks">
+					<div class="thecontainer d-flex justify-content-center h-100" *ngFor="let item of items.books" >
+						<div class="box d-flex justify-content-center " >
+							<img class="" style="width: 100px;" [src]="item"  alt="../../assets/pexels-monstera-production-5708969.jpg">
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<button id="next{{1}}" (click)="next(1)" class="position-absolute  end-0 border-2  border-end-0 rounded-1 shadow" style="opacity: 0;width: 75px; height: 40%;top: 20%;background-color: white;">
+				<span class="carousel-control-next-icon  " style="color: black; background-image: url(../../../assets/chevron_right_208px.png);" aria-hidden="true"></span>
+			</button>
+			<button id="prev{{1}}" (click)="prev(1)" class="position-absolute  start-0   border-2  border-start-0 rounded-1 shadow-sm" style="opacity: 0; width: 75px;height: 40%;top: 20%;background-color: white;">
+				<span class="carousel-control-prev-icon " style="color: black; background-image: url(../../../assets/chevron_left_208px.png);" aria-hidden="true"></span>
+			</button>
+		</div>
+	</div>
+
+</div>	

@@ -1,0 +1,51 @@
+*{
+  box-sizing:border-box;
+}
+.carousel-control-next:hover{
+  background-color:rgba(255,255,255,0.4);
+}
+.carousel-control-prev:hover{
+  background-color:rgba(255,255,255,0.4);
+}
+  img{
+    width:278px;
+    max-height:220px;
+  }
+  .carousel-item{
+      max-height: 210px;
+  }
+//------------------------
+#next{
+  width: 100px;
+  height: 50%;
+  top: 20%;
+}
+
+
+
+#first-row{
+  transition:transform 1s ease;
+}
+#second-row{
+  transition:transform 1s ease;
+}
+#third-row{
+  transition:transform 1s ease;
+}
+
+[class*="slidee"]{
+  padding:0;
+  margin-right:10px;
+  transition:transform 1s ease;
+  overflow:hidden;
+}
+
+.thecontainer{
+  width:290px
+}
+.box{
+  height: 170px;
+  width: 100%;
+  background-color: #f7f7f7;
+  padding:5px
+}

@@ -1,0 +1,21 @@
+<form action="" class=" col-md-12">
+    <div class="p-1 bg-light rounded rounded-pill shadow-sm ">
+        <div class="input-group" style="margin-left:10px;">
+          <input type="search" placeholder="What're you searching for?" list="datalistOptions" (input)="changed($event)" (focus)="SearchActivated()"  (blur)="SearchDeactivated()" aria-describedby="button-addon1" class="form-control border-0 bg-light">
+          <div class="search-autocomplete container position-absolute bg-light" [ngStyle]="{'display': search.isSearchActive ? 'initial' : 'none'}">
+            <div class="list-group">
+              <button type="button"  class="list-group-item list-group-item-action border-0 " aria-current="true">
+                The current button
+              </button>
+              <button type="button" class="list-group-item list-group-item-action border-0 ">A second button item</button>
+              <button type="button" class="list-group-item list-group-item-action border-0 ">A third button item</button>
+              <button type="button" class="list-group-item list-group-item-action border-0 ">A fourth button item</button>
+              <button type="button" class="list-group-item list-group-item-action border-0 " disabled>A disabled button item</button>
+            </div>
+          </div>
+          <div class="input-group-append">
+            <button id="button-addon1"  class="btn btn-link text-danger"><img src="../../../assets/search_480px.png" width="25px" height="25px" alt=""></button>
+          </div>
+        </div>
+      </div>
+  </form>

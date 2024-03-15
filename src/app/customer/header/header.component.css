@@ -1,0 +1,23 @@
+*{
+    box-sizing:border-box;
+}
+button{
+    border:0;
+    background-color:transparent;
+}
+.box-light{
+    border:1px solid transparent
+}
+.box-light:hover{
+    border:1px solid white;
+}
+
+#main-menu{
+    transition:transform 0.4s ease;
+}
+
+#seeall{
+    transform:translateY(-84%);
+    transition:transform 0.5s ease-out ;
+
+}

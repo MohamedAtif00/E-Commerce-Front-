@@ -1,0 +1,12 @@
+.search-autocomplete{
+    width:95%;
+    top:42px;
+    color:black;
+    z-index:100;
+}
+.list-group-item{
+    background-color:transparent;
+}
+.list-group-item:hover{
+    background-color:gray;
+}

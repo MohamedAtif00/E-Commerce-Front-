@@ -1,0 +1,77 @@
+<div class="container w-50 p-5 justify-content-center gap-4">
+    <h2 class="text-center mb-3" [routerLink]="''" style="cursor: pointer;">E-Commerce</h2>
+    <div class="col-12 border border-1 rounded-3  d-flex  flex-column  align-items-center ">
+        <div class="d-flex  flex-column  col-9 m-5 justify-content-center  ">
+            <div class="">
+                <h3>Create Account</h3>
+            </div>
+            <form class="d-flex flex-column gap-3 justify-content-center " [formGroup]="registerForm" (ngSubmit)="submitForm()">
+                <div class="row col-12 w-100 m-0 p-0  justify-content-between g-1  ">
+                    <div class="input-group mb-3  p-0  w-50 h-50">
+                        <span class="input-group-text" id="inputGroup-sizing-default">First Name</span>
+                        <input 
+                          type="text" 
+                          class="form-control me-1 " 
+                          [ngClass]="{ 'is-invalid': firstNameInvalid && firstNameTouched, 'is-valid': firstNameValid && firstNameTouched }" 
+                          formControlName="firstName"
+                          value=""
+                          >
+                        <div class="invalid-feedback" *ngIf="firstNameInvalid && firstNameTouched">This field is required</div>
+                    </div>
+                      
+                    <div class="input-group   mb-3 w-50 h-50 float-end " >
+                        <span class="input-group-text" id="inputGroup-sizing-default">Last Name</span>
+                        <input type="text" class="form-control"  [ngClass]="{'is-invalid':!lastNameValid && lastNameTouched}" formControlName="lastName" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <div class="invalid-feedback">This field is requered</div>
+                    </div>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Username</span>
+                    <input type="text" class="form-control " [ngClass]="{'is-invalid':!usernameValid && usernameTouched || (usernameTaken)}" formControlName="username"  aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <div class="invalid-feedback" *ngIf="!usernameValid && usernameTouched">This field is requered</div>
+                    <div class="invalid-feedback">this name is taken</div>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                    <input type="text" class="form-control " [ngClass]="{ 'is-invalid': (!emailValid && emailTouched) }" formControlName="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <div class="invalid-feedback ">Please enter valid email</div>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+                    <input type="password" class="form-control " [ngClass]="{'is-invalid':(!minLengthValid  && passwordTouched) || !maxLengthValid}" style="min-width: 450px;" formControlName="password">
+                    <div class="col-auto ">
+                        <div class="form-text text-danger " *ngIf="(!minLengthValid && passwordTouched) || !maxLengthValid">
+                          Must be 8-20 characters long.
+                        </div>
+                        <div class="form-text text-danger " *ngIf="!requiresSpecialCharsValid && passwordTouched">
+                            Must has special character
+                        </div>   
+                        <div class="form-text text-danger " *ngIf="!requiresDigitValid && passwordTouched">
+                            Must has numbers
+                        </div>     
+                        <div class="form-text text-danger " *ngIf="!requiresUppercaseValid && passwordTouched">
+                            Must has Capital letter
+                        </div>                 
+                      </div>
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Re-enter Password</span>
+                        <input type="password" class="form-control" [ngClass]="{'is-invalid':requiresMatchPassword && confirmPasswordTouched}" aria-label="Sizing example input" aria-describedby="passwordHelpInline" 
+                        formControlName="confirmPassword">
+                    </div>
+                    <div  class="form-text d-inline  invalid-feedback " *ngIf="requiresMatchPassword && confirmPasswordTouched">
+                        Must match with password
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn btn-primary"  (submit)="submitForm()">Submit form</button>
+                  </div>
+                
+            </form>
+
+            <p class="" style="font-size: 13px;"> By Creating an account  you agree to E-Commerec <a class="link-opacity-100" href="#"> Condition of Use</a> and <a class="link-opacity-100" href="#"> Privacy Notice</a> </p>
+              
+        </div>
+    </div>
+</div>

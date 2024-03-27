@@ -1,11 +1,13 @@
-import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { trigger, state, style, transition, animate } from '@angular/animations';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
+ 
 })
-export class HeaderComponent implements AfterViewInit,OnDestroy {
+export class HeaderComponent implements AfterViewInit,OnDestroy,OnInit{
 
   seeallActive:boolean = false;
 
@@ -15,7 +17,6 @@ export class HeaderComponent implements AfterViewInit,OnDestroy {
 
   ngAfterViewInit() {
     console.log('change');
-    
     // Access the native element using this.canvas.nativeElement
     const canvasElement = this.canvas.nativeElement as HTMLElement;
     
@@ -33,6 +34,9 @@ export class HeaderComponent implements AfterViewInit,OnDestroy {
     
     // Start observing the target node (canvas element) for changes in attributes or child nodes
     this.observer.observe(canvasElement, { attributes: true, childList: true, subtree: true });
+  }
+
+  ngOnInit(): void {
   }
 
   ngOnDestroy() {
@@ -56,18 +60,16 @@ export class HeaderComponent implements AfterViewInit,OnDestroy {
     menu.style.transform = 'translatex(-50%)'
   }
 
-  seeall()
+  collaps()
   {
-    this.seeallActive = !this.seeallActive
-    let seeall = document.getElementById('seeall') as HTMLElement;
-    let updownarrow = document.getElementById('updownarrow') as HTMLImageElement;
-    if(this.seeallActive)
+    var col = document.getElementById('collaps') as HTMLElement;
+    var image = document.getElementById('updownarrow') as HTMLImageElement;
+    if(col.classList.contains('collapsed'))
     {
-      seeall.style.transform = 'translateY(0%)';
-      updownarrow.src =  '../../assets/chevron_up_96px.png';
-    }else{
-      seeall.style.transform = 'translateY(-84%)';
-      updownarrow.src =  '../../assets/chevron_down_96px.png';
+      image.src = '../../../assets/chevron_down_96px.png'
+    }else
+    {
+      image.src = '../../../assets/chevron_up_96px.png'
     }
   }
 
@@ -75,4 +77,7 @@ export class HeaderComponent implements AfterViewInit,OnDestroy {
   {
     return Array(n);
   }
+
+  
+
 }

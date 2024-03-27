@@ -20,4 +20,6 @@ export class MainComponent {
       this.searchActive = value;
     });
   }
+
+  
 }

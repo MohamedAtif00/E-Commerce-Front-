@@ -11,6 +11,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { CustomerRoutingModule } from './customer-routing/customer-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { RouterModule } from '@angular/router';
 
 
@@ -29,7 +30,7 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    CustomerRoutingModule,
+    CustomerRoutingModule
   ]
 })
 export class CustomerModule { }

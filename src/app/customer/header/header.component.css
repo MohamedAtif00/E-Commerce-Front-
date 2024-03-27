@@ -17,7 +17,8 @@ button{
 }
 
 #seeall{
-    transform:translateY(-84%);
-    transition:transform 0.5s ease-out ;
+    //transform:translateY(-84%);
+    //height:0;
+    transition:height 0.5s ease-in-out ;
 
 }

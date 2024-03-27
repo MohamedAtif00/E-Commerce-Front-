@@ -6,7 +6,7 @@
         <i class="bi bi-list fs-4 text-light"></i><span class="text-light mb-2 fs-5 mb-2" >All</span>
       </div>
     </button>
-    <div #canvas class="offcanvas offcanvas-start  overflow-hidden"  tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div #canvas class="offcanvas offcanvas-start  overflow-scroll "  tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
       <div id="main-menu" class=" d-flex flex-nowrap  flex-row position-relative " style="width: 800px;transform: translateX(0);">
         <div class="row " style="width: 50%;">
           <div class="offcanvas-header bg-dark " >
@@ -17,11 +17,11 @@
             </div>
             <button type="button" class="btn-close " data-bs-theme="bg-white " data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
-          <div class="offcanvas-body p-0 " style="overflow: hidden;height: 100%;">
+          <div class="offcanvas-body p-0  " style="overflow: hidden;height: 100%;">
             <ul class="navbar-nav row w-100 ">
               <!----------------------------------------->
               <!-- <li class="nav-item col-12  w-100 pe-0 mb-4" > -->
-                <div class="btn-group d-flex flex-column gap-4 align-items-center justify-content-between  dropend col-12 overflow-scroll ">                
+                <div class=" d-flex flex-column gap-4 align-items-center justify-content-between  col-12 overflow-hidden     ">                
                   <h5 class="offcanvas-title fw-bolder align-self-start ms-3" id="offcanvasNavbarLabel">Categories</h5>
                   <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
                     <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
@@ -41,35 +41,38 @@
                   <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
                     <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
                   </button>
-                  <div  class=" d-flex col-12   flex-column align-items-start   dropend overflow-hidden  " style="height: 10%;" >
-                    <div id="seeall" class="d-flex col-12 fs-5  flex-column gap-4 align-items-center justify-content-between  overflow-hidden" >
-                      <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                        <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                      </button>
-                      <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                        <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                      </button>
-                      <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                        <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                      </button>
-                      <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                        <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                      </button>
-                      <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                        <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                      </button>
-                      <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                        <h5 style="line-height: 5px;">Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                      </button>
-                      <div class="d-flex flex-row gap-3    w-100 row justify-content-center     align-items-sm-end   " >
-                        <div class="d-flex flex-row  w-100 row justify-content-start    align-items-sm-end "  (click)="seeall()" style="cursor: pointer;">
-                          <button class="p-0 ms-3 w-25" style="margin-left: 60px;border:none; background-color: transparent;" >see all</button>
-                          <img id="updownarrow" src="../../assets/chevron_down_96px.png" class=" " alt="" style="width: 14%; height: 30px;"> 
-                        </div>
+                  <div  class=" d-flex col-12   flex-column align-items-start   overflow-hidden     " style="height: 10%;" >
+                    <div class="collapse col-12 justify-content-start  align-items-center  " id="collapseExample">
+                      <div class="card card-body p-0 gap-4 justify-content-between  align-items-center border-0 ">
                         <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                          <h5 style="line-height: 5px;">Category</h5> <img src="../../../assets/forward_144px.png" width="20px" height="20px" alt="">
+                          <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
                         </button>
+                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                          <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                        </button>
+                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                          <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                        </button>
+                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                          <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                        </button>
+                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                          <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                        </button>
+                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                          <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                        </button>
+                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                          <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                        </button>
+                        
                       </div>
+                    </div>
+                    <div id="collaps" class="d-flex flex-row  w-100 row ms-3  justify-content-start  align-items-sm-end "  (click)="collaps()" style="cursor: pointer;" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                      <button class="btn bg-transparent  w-25 fs-5" type="button" >
+                        see all
+                      </button>                    
+                      <img id="updownarrow" src="../../../assets/chevron_down_96px.png" class=" " alt="" style="width: 14%; height: 30px;"> 
                     </div>
                   </div>
                 </div>       

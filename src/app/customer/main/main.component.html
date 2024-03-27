@@ -38,7 +38,7 @@
       <app-header>
         <app-navbar ></app-navbar>
       </app-header>
-      <div class=" position-absolute z-3" [ngClass]="searchActive?'search-active':''">
+      <div class=" position-absolute z-3 h-100 w-100 " [ngClass]="searchActive?'search-active':''">
       </div>
       
     </div>
@@ -47,4 +47,6 @@
         <app-list-carousel class="container-fluid row justify-content-center "></app-list-carousel>
       </app-home> -->
       <router-outlet></router-outlet>
+
+    
   </div>

@@ -1,0 +1,35 @@
+<div class="container w-50 p-5 justify-content-center gap-4">
+    <h2 class="text-center mb-3" [routerLink]="''" style="cursor: pointer;">E-Commerce</h2>
+    <div class="col-12 border border-1 rounded-3  d-flex  flex-column  align-items-center ">
+        <div class="d-flex  flex-column  col-9 m-5 justify-content-center  ">
+            <div class="">
+                <h3>Create Account</h3>
+            </div>
+            <form class="d-flex flex-column gap-3 justify-content-center " [formGroup]="loginForm" (ngSubmit)="submitForm()">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                    <input type="text" class="form-control "  formControlName="email" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                    <div class="invalid-feedback ">Please enter valid email</div>
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
+                    <input type="password" class="form-control " style="min-width: 450px;" formControlName="password">
+                    <div class="col-auto ">
+                        <div class="form-text text-danger " *ngIf="!fieldRequired&& emailTouched">
+                          Must be 8-20 characters long.
+                        </div>      
+                      </div>
+                </div>
+               
+                <div class="col-12">
+                    <button class="btn btn-primary"  (submit)="submitForm()">Submit form</button>
+                  </div>
+                
+            </form>
+
+            <p class="" style="font-size: 13px;"> By Creating an account  you agree to E-Commerec <a class="link-opacity-100" href="#"> Condition of Use</a> and <a class="link-opacity-100" href="#"> Privacy Notice</a> </p>
+              
+        </div>
+    </div>
+</div>
+

@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import {  RouterModule, Routes } from '@angular/router';
 import { MainComponent } from '../main/main.component';
 import { HomeComponent } from '../home/home.component';
+import { ProductListComponent } from '../product-list/product-list.component';
 
 
 const router:Routes = [
   {path:'',component:MainComponent,children:[
-    {path:'',component:HomeComponent}
+    {path:'',component:HomeComponent},
+    {path:'productlist',component:ProductListComponent}
   ]}
 ];
 

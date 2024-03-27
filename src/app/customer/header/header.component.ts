@@ -1,5 +1,11 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { catchError, map } from 'rxjs';
+import { CategoryService } from '../Shared/category/category.service';
+import { HttpErrorResponse } from '@angular/common/http';
+import { AuthService } from 'src/app/authentication/Service/auth.service';
+import { CategoryModel } from '../Model/Category.model';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +16,20 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild, Vie
 export class HeaderComponent implements AfterViewInit,OnDestroy,OnInit{
 
   seeallActive:boolean = false;
+  authorized!:boolean;
+  categories!:CategoryModel[];
+  firstThreeElements!:CategoryModel[]; 
+  restElements!:CategoryModel[]; 
 
   @ViewChild('canvas', { static: true }) canvas!: ElementRef;
 
    observer!: MutationObserver;
 
+   constructor(private route:ActivatedRoute,private categoryserv:CategoryService,private authserv:AuthService){}
+
   ngAfterViewInit() {
+
+
     console.log('change');
     // Access the native element using this.canvas.nativeElement
     const canvasElement = this.canvas.nativeElement as HTMLElement;
@@ -37,6 +51,19 @@ export class HeaderComponent implements AfterViewInit,OnDestroy,OnInit{
   }
 
   ngOnInit(): void {
+    this.authserv.getTokenFromStorage();
+    if(this.authserv.authorized) {this.authorized = true;}
+    else {this.authorized = false;}
+    console.log(this.authserv.authorized);
+    
+
+
+    this.categoryserv.getAllCategories().subscribe(data =>{
+      console.log(data);
+      this.firstThreeElements = data.slice(0,3);
+      this.restElements = data.slice(3);
+    })
+    
   }
 
   ngOnDestroy() {

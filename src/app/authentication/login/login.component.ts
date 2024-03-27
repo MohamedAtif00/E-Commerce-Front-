@@ -4,6 +4,7 @@ import { loginService } from '../Service/login.service';
 import { loginModel } from '../Model/Request/login-request';
 import { AuthService } from '../Service/auth.service';
 import { Token } from '@angular/compiler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,7 @@ export class LoginComponent {
 
   loginInfo!:loginModel;
 
-  constructor(private loginserv:loginService,private authserv:AuthService){}
+  constructor(private loginserv:loginService,private authserv:AuthService,private router:Router){}
 
 
   submitForm()
@@ -37,6 +38,7 @@ export class LoginComponent {
 
         console.log(this.authserv.getTokenFromStorage);
         
+        this.router.navigate([''])
       }
       
     });

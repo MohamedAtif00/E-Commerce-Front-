@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 
 @Injectable(
     {
@@ -6,11 +6,18 @@ import { Injectable } from "@angular/core";
     }
 )
 
-export class AuthService{
+export class AuthService implements OnInit{
+    ngOnInit(): void {
+        
+    }
 
-    get getTokenFromStorage()
+    authorized!:boolean;
+
+    getTokenFromStorage()
     {
-        return localStorage.getItem("auth_bearer_token");
+        let token = localStorage.getItem("auth_bearer_token");
+        if(!token) {this.authorized = false}else{this.authorized = true};
+        return token
     }
 
     setTokenInStorage(token:string)

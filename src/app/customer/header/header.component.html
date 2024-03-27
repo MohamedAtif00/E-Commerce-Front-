@@ -18,12 +18,18 @@
             <button type="button" class="btn-close " data-bs-theme="bg-white " data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div class="offcanvas-body p-0  " style="overflow: hidden;height: 100%;">
-            <ul class="navbar-nav row w-100 ">
+            <div class="fs-3 text-center mt-3 " *ngIf="!authorized">
+             <a [routerLink]="['auth','login']">Please log in first </a> 
+            </div>
+            <ul class="navbar-nav row w-100 " *ngIf="authorized">
               <!----------------------------------------->
               <!-- <li class="nav-item col-12  w-100 pe-0 mb-4" > -->
                 <div class=" d-flex flex-column gap-4 align-items-center justify-content-between  col-12 overflow-hidden     ">                
                   <h5 class="offcanvas-title fw-bolder align-self-start ms-3" id="offcanvasNavbarLabel">Categories</h5>
-                  <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                  <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" *ngFor="let item of firstThreeElements"  (click)="showSubMenu(item.id.value)">
+                    <h5>{{item.name}}</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                  </button>
+                  <!-- <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
                     <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
                   </button>
                   <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
@@ -37,14 +43,14 @@
                   </button>
                   <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
                     <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                  </button>
-                  <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                    <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                  </button>
+                  </button> -->
                   <div  class=" d-flex col-12   flex-column align-items-start   overflow-hidden     " style="height: 10%;" >
                     <div class="collapse col-12 justify-content-start  align-items-center  " id="collapseExample">
                       <div class="card card-body p-0 gap-4 justify-content-between  align-items-center border-0 ">
-                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " *ngFor="let item of restElements" style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
+                          <h5>{{item.name}}</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
+                        </button>
+                        <!-- <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
                           <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
                         </button>
                         <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
@@ -61,10 +67,7 @@
                         </button>
                         <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
                           <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                        </button>
-                        <button type="button" class="btn d-flex justify-content-between  col-11 fs-5 pt-2 " style="height: 40px;" aria-expanded="false" (click)="showSubMenu('category')">
-                          <h5>Category</h5> <img src="../../assets//forward_144px.png" width="20px" height="20px" alt="">
-                        </button>
+                        </button> -->
                         
                       </div>
                     </div>

@@ -4,7 +4,8 @@ import { CustomerModule } from './customer/customer.module';
 
 const routes: Routes = [
   {path:'',loadChildren:()=> import('./customer/customer.module').then(x => x.CustomerModule)},
-  {path:'auth',loadChildren:()=>import('./authentication/authentication.module').then(x => x.AuthenticationModule)}
+  {path:'auth',loadChildren:()=>import('./authentication/authentication.module').then(x => x.AuthenticationModule)},
+  {path:'seller',loadChildren:()=>import('./seller/seller.module').then(x =>x.SellerModule)}
 ];
 
 @NgModule({

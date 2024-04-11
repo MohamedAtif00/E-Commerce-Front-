@@ -22,8 +22,9 @@
       <button class="navbar-toggler col-1 " type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <button type="button" class="btn btn-dark text-white" style="width: 100px;" [routerLink]="['auth','register']">Register</button>
-      <button type="button" class="btn btn-dark text-white" style="width: 100px;" [routerLink]="['auth','login']">login</button>
+      <button type="button" class="btn btn-dark text-white" style="width: 100px;" [routerLink]="['auth','register']" *ngIf="!authorized">Register</button>
+      <button type="button" class="btn btn-dark text-white" style="width: 100px;" [routerLink]="['auth','login']" *ngIf="!authorized">login</button>
+      <button type="button" class="btn btn-dark text-white" style="width: 100px;" (click)="logout()" *ngIf="authorized">Log out</button>
 
     </div>
 

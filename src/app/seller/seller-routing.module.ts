@@ -11,8 +11,8 @@ import { ProductDetailsComponent } from "./body/management/product-details/produ
 const routes:Routes=[
     {path:'',component:HomeComponent,children:[
         {path:'',component:BodyComponent,children:[
-            {path:'management',component:ManagementComponent,children:[
-                {path:'',component:ProductsListComponent},
+            {path:'',component:ManagementComponent,children:[
+                {path:'products-list',component:ProductsListComponent},
                 {path:'product-details',component:ProductDetailsComponent}
             ]}
         ]}

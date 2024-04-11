@@ -1,4 +1,5 @@
 export interface loginModel{
     username:string,
-    password:string
+    password:string,
+    isSeller:boolean
 }

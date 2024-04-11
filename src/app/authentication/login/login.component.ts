@@ -15,7 +15,8 @@ export class LoginComponent {
 
   loginForm:FormGroup = new FormGroup({
     email:new FormControl('',[Validators.required]),
-    password:new FormControl('',[Validators.required])
+    password:new FormControl('',[Validators.required]),
+    seller:new FormControl(false)
   });
 
   loginInfo!:loginModel;
@@ -27,21 +28,50 @@ export class LoginComponent {
   {
     
     console.log(this.loginForm);
-    this.loginInfo = {username:this.loginForm.controls['email'].value,password:this.loginForm.controls['password'].value}
-    this.loginserv.login(this.loginInfo).subscribe((data)=>{
-      console.log(data);
+    this.loginInfo = {username:this.loginForm.controls['email'].value,password:this.loginForm.controls['password'].value,isSeller:this.loginForm.controls['seller'].value}
+    console.log('seller',this.loginInfo.isSeller);
+    
+    if(!this.loginInfo.isSeller)
+    {
+      let sub = this.loginserv.login(this.loginInfo)
 
-      if(data.value != null && data.error == null)
+      if(sub) 
       {
-        let toke = data.value.jwtToken as string
-        this.authserv.setTokenInStorage(toke)
+        sub.subscribe((data)=>{
+          console.log(data);
+    
+          if(data.value != null && data.error == null)
+          {
+            let toke = data.value.jwtToken as string
+            this.authserv.setTokenInStorage(toke)
+    
+            console.log(this.authserv.getTokenFromStorage);
+            
+            this.router.navigate([''])
+          }
+          
+        });
 
-        console.log(this.authserv.getTokenFromStorage);
-        
-        this.router.navigate([''])
       }
       
-    });
+
+    }else
+    {
+      this.loginserv.LoginAsSeller(this.loginInfo).subscribe(data=>{
+
+        console.log(data);
+        
+        if(data.value != null && data.error == null)
+        {
+          let toke = data.value.jwtToken as string
+          this.authserv.setTokenInStorage(toke)
+  
+          console.log(this.authserv.getTokenFromStorage);
+          
+          this.router.navigate([''])
+        }
+      });
+    }
     
   }
 
